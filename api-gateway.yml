@@ -17,7 +17,7 @@ spring:
         - id: msmovie
           uri: lb://movie-service
           predicates:
-            - Path=/api/v1/movie/**
+            - Path=/api/v1/movies/**
 
 info:
   app:
