@@ -7,8 +7,6 @@ spring:
   mongodb:
     embedded:
       version: 4.0.2
-
-enabled: true
   data:
     mongodb:
       database: test
