@@ -27,7 +27,7 @@ resilience4j:
   retry:
     configs:
       default:
-        max-retry-attempts: 3
+        max-retry-attempts: 2
         wait-duration: 2s
         retry-exceptions:
           - java.io.IOException
@@ -42,7 +42,7 @@ resilience4j:
     configs:
       default:
         register-health-indicator: true
-        sliding-window-size: 5
+        sliding-window-size: 10
         minimum-number-of-calls: 5
         permitted-number-of-calls-in-half-open-state: 3
         wait-duration-in-open-state: 20s
