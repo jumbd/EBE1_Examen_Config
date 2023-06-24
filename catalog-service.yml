@@ -37,6 +37,9 @@ resilience4j:
       instances:
         getMoviesRetry:
           base-config: default
+          retry-exceptions:
+          - feign.FeignException$InternalServerError
+          - feign.FeignException$ServiceUnavailable
         getSeriesRetry:
           base-config: default
   circuitbreaker:
