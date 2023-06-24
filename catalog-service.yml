@@ -12,6 +12,11 @@ spring:
       port: 27017
   zipkin:
     base-url: http://localhost:9411
+  rabbitmq:
+    username: guest
+    password: guest
+    host: localhost
+    port: 5672
 
 eureka:
   instance:
@@ -33,15 +38,17 @@ resilience4j:
           - java.io.IOException
           - java.net.SocketTimeoutException
           - java.net.ConnectException
-          - feign.FeignException$ServiceUnavailable
       instances:
         getMoviesRetry:
           base-config: default
           retry-exceptions:
-          - feign.FeignException$InternalServerError
-          - feign.FeignException$ServiceUnavailable
+            - feign.FeignException$InternalServerError
+            - feign.FeignException$ServiceUnavailable
         getSeriesRetry:
           base-config: default
+          retry-exceptions:
+            - feign.FeignException$InternalServerError
+            - feign.FeignException$ServiceUnavailable
   circuitbreaker:
     configs:
       default:
