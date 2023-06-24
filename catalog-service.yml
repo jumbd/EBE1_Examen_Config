@@ -33,6 +33,7 @@ resilience4j:
           - java.io.IOException
           - java.net.SocketTimeoutException
           - java.net.ConnectException
+          - feign.FeignException$InternalServerError
       instances:
         getMoviesRetry:
           base-config: default
